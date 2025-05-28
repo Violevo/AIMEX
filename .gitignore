@@ -9,7 +9,7 @@ CMakeFiles/
 cmake_install.cmake
 Makefile
 compile_commands.json
-
+    
 # Executable files
 *.out
 *.exe
@@ -28,7 +28,9 @@ compile_commands.json
 *.swp
 
 # IDEs and editors
+.out/
 .vscode/
+.vs/
 .idea/
 *.code-workspace
 
@@ -39,3 +41,4 @@ Thumbs.db
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+/out/build/x64-Debug
