@@ -34,7 +34,7 @@ int main() {
     signal(SIGINT, signal_handler);
     signal(SIGTERM, signal_handler);
 
-    std::cout << "Video Processor Application Starting...." << std::endl;
+    std::cout << "Application Starting" << std::endl;
 
     // Initialize components
     NDIReceiver ndi_receiver;
@@ -59,7 +59,7 @@ int main() {
 
     // Initialize USB
     if (!usb_sender.initialize()) {
-        std::cerr << "Failed to initialize USB sender" << std::endl;
+        std::cerr << "Failed to initialize Makcu" << std::endl;
         return 1;
     }
 
@@ -90,7 +90,7 @@ int main() {
 
         // Check USB connection
         if (!usb_connected) {
-            std::cout << "Attempting to connect to USB device..." << std::endl;
+            std::cout << "Attempting to connect to Makcu..." << std::endl;
             if (usb_sender.connect_device(g_config.vendor_id, g_config.product_id)) {
                 usb_connected = true;
             }
@@ -123,7 +123,7 @@ int main() {
         cv::Point2f movement_vector = vector_calc.calculate_vector(highest_point);
 
         // Normalize vector for mouse movement
-        vector_calc.normalize_vector(movement_vector, 10.0f); // Max 10 pixel movement
+        vector_calc.normalize_vector(movement_vector, 50.0f); // Max movement (in pixels) per frame  <-------- REPLACE WITH REAL SMOOTHING THIS IS VERY BAD
 
         // Send mouse movement if valid point found
         if (highest_point.x >= 0 && highest_point.y >= 0) {
@@ -131,6 +131,9 @@ int main() {
                 std::cerr << "Failed to send mouse movement, attempting to reconnect..." << std::endl;
                 usb_connected = false;
             }
+            else {
+                std::cout << "Mouse movement sent: (" << movement_vector.x << ", " << movement_vector.y << ")" << std::endl;
+			}
         }
 
         // Small delay to prevent overwhelming the system

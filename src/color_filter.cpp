@@ -23,9 +23,9 @@ cv::Mat ColorFilter::apply_filter(const cv::Mat& input) {
     cv::inRange(hsv, hsv_lower_, hsv_upper_, filtered);
 
     // Apply morphological operations to clean up noise
-    cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5));
-    cv::morphologyEx(filtered, filtered, cv::MORPH_OPEN, kernel);
-    cv::morphologyEx(filtered, filtered, cv::MORPH_CLOSE, kernel);
+    //cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5));
+    //cv::morphologyEx(filtered, filtered, cv::MORPH_OPEN, kernel);
+    //cv::morphologyEx(filtered, filtered, cv::MORPH_CLOSE, kernel);
 
     return filtered;
 }
