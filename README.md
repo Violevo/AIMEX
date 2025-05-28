@@ -1,6 +1,8 @@
 # AIMEX - Fully 2PC Colorbot
 
 ## A fast, fully external colorbot for competitive gaiming
+> 🚧 **Disclaimer:**
+> AIMEX is in **VERY** early beta — expect bugs, missing functionality, and broken features.
 
 AIMEX is a high-performance colorbot designed for competitive gaming, operating solely on a second computer to ensure complete isolation from the game's anti-cheat system. It uses NDI video streaming and a hardware input device (MAKCU or alternative) to interface with the main computer without ever needing to run any code on it. The system requires minimal performance overhead, allowing it to run on low-end hardware such as a Raspberry Pi 4B or an old laptop with good performance. Configuration is done through a modern web interface, which can be accessed from any device on the user’s local network.
 
